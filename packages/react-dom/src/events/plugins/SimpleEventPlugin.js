@@ -7,9 +7,9 @@
  * @flow
  */
 
-import type {DOMEventName} from '../../events/DOMEventNames';
+import type {DOMEventName} from '../DOMEventNames';
 import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
-import type {AnyNativeEvent} from '../../events/PluginModuleType';
+import type {AnyNativeEvent} from '../PluginModuleType';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
 
@@ -26,7 +26,7 @@ import {
   SyntheticWheelEvent,
   SyntheticClipboardEvent,
   SyntheticPointerEvent,
-} from '../../events/SyntheticEvent';
+} from '../SyntheticEvent';
 
 import {
   ANIMATION_END,

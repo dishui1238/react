@@ -7,10 +7,10 @@
  * @flow
  */
 
-import type {AnyNativeEvent} from '../events/PluginModuleType';
+import type {AnyNativeEvent} from './PluginModuleType';
 import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
 import type {Container, SuspenseInstance} from '../client/ReactDOMHostConfig';
-import type {DOMEventName} from '../events/DOMEventNames';
+import type {DOMEventName} from './DOMEventNames';
 
 import {
   isReplayableDiscreteEvent,

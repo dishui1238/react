@@ -13,7 +13,7 @@ import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
 
 import {canUseDOM} from 'shared/ExecutionEnvironment';
-import {SyntheticEvent} from '../../events/SyntheticEvent';
+import {SyntheticEvent} from '../SyntheticEvent';
 import isTextInputElement from '../isTextInputElement';
 import shallowEqual from 'shared/shallowEqual';
 
