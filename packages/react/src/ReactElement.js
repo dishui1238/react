@@ -358,6 +358,7 @@ export function createElement(type, config, children) {
   let source = null;
 
   if (config != null) {
+    // 含有 ref
     if (hasValidRef(config)) {
       ref = config.ref;
 
@@ -365,6 +366,7 @@ export function createElement(type, config, children) {
         warnIfStringRefCannotBeAutoConverted(config);
       }
     }
+    // 含有 key
     if (hasValidKey(config)) {
       key = '' + config.key;
     }
@@ -372,6 +374,7 @@ export function createElement(type, config, children) {
     self = config.__self === undefined ? null : config.__self;
     source = config.__source === undefined ? null : config.__source;
     // Remaining properties are added to a new props object
+    // 其余的属性放入 props 对象中
     for (propName in config) {
       if (
         hasOwnProperty.call(config, propName) &&
@@ -384,7 +387,8 @@ export function createElement(type, config, children) {
 
   // Children can be more than one argument, and those are transferred onto
   // the newly allocated props object.
-  const childrenLength = arguments.length - 2;
+  const childrenLength = arguments.length - 2; // 去掉前两个参数 type config
+  // props: {childArray: [...]}
   if (childrenLength === 1) {
     props.children = children;
   } else if (childrenLength > 1) {

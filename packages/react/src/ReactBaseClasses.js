@@ -27,6 +27,7 @@ function Component(props, context, updater) {
   this.updater = updater || ReactNoopUpdateQueue;
 }
 
+// 类组件标识
 Component.prototype.isReactComponent = {};
 
 /**
@@ -138,6 +139,7 @@ const pureComponentPrototype = (PureComponent.prototype = new ComponentDummy());
 pureComponentPrototype.constructor = PureComponent;
 // Avoid an extra prototype jump for these methods.
 Object.assign(pureComponentPrototype, Component.prototype);
+// isPureReactComponent 标识纯组件
 pureComponentPrototype.isPureReactComponent = true;
 
 export {Component, PureComponent};

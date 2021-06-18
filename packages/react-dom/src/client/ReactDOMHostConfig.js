@@ -1087,8 +1087,7 @@ export function findFiberRoot(node: Instance): null | FiberRoot {
   while (index < stack.length) {
     const current = stack[index++];
     if (isContainerMarkedAsRoot(current)) {
-      return ((getInstanceFromNodeDOMTree(current): any): FiberRoot);
-    }
+      return ((getInstanceFromNodeDOMTree(current):    }
     stack.push(...current.children);
   }
   return null;
@@ -1217,3 +1216,5 @@ export function setupIntersectionObserver(
     },
   };
 }
+
+export * from './sy';

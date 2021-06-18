@@ -18,7 +18,7 @@ export {
   findDOMNode,
   flushSync,
   hydrate,
-  render,
+  render, // !
   unmountComponentAtNode,
   unstable_batchedUpdates,
   unstable_createEventHandle,
