@@ -108,6 +108,7 @@ function legacyCreateRootFromDOMContainer(
   forceHydrate: boolean,
 ): FiberRoot {
   // First clear any existing content.
+  // 清空 container
   if (!forceHydrate) {
     let rootSibling;
     while ((rootSibling = container.lastChild)) {
@@ -145,6 +146,8 @@ function warnOnInvalidCallback(callback: mixed, callerName: string): void {
   }
 }
 
+
+// ! render 实际调用的函数
 function legacyRenderSubtreeIntoContainer(
   parentComponent: ?React$Component<any, any>,
   children: ReactNodeList,
@@ -160,7 +163,7 @@ function legacyRenderSubtreeIntoContainer(
   let root = container._reactRootContainer;
   let fiberRoot: FiberRoot;
   if (!root) {
-    // Initial mount
+    // Initial mount 初始化
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,
@@ -218,10 +221,6 @@ export function findDOMNode(
   if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
     return (componentOrElement: any);
   }
-  if (__DEV__) {
-    return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');
-  }
-  return findHostInstance(componentOrElement);
 }
 
 export function hydrate(
