@@ -63,7 +63,6 @@ export async function resolve(
     };
     if (!warnedAboutConditionsFlag) {
       warnedAboutConditionsFlag = true;
-      // eslint-disable-next-line react-internal/no-production-logging
       console.warn(
         'You did not run Node.js with the `--conditions react-server` flag. ' +
           'Any "react-server" override will only work with ESM imports.',

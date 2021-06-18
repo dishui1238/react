@@ -77,7 +77,6 @@ export function act(callback: () => Thenable<mixed>): Thenable<void> {
   if (!__DEV__) {
     if (didWarnAboutUsingActInProd === false) {
       didWarnAboutUsingActInProd = true;
-      // eslint-disable-next-line react-internal/no-production-logging
       console.error(
         'act(...) is not supported in production builds of React, and might not behave as expected.',
       );

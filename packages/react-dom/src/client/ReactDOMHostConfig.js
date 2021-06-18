@@ -1087,10 +1087,11 @@ export function findFiberRoot(node: Instance): null | FiberRoot {
   while (index < stack.length) {
     const current = stack[index++];
     if (isContainerMarkedAsRoot(current)) {
-      return ((getInstanceFromNodeDOMTree(current):    }
-    stack.push(...current.children);
-  }
+      // return ((getInstanceFromNodeDOMTree(current): any): FiberRoot);
+      return getInstanceFromNodeDOMTree(current)
+    }
   return null;
+  }
 }
 
 export function getBoundingRect(node: Instance): BoundingRect {

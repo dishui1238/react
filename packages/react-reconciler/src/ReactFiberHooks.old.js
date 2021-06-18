@@ -1021,7 +1021,6 @@ function readFromUnsubcribedMutableSource<Source, Snapshot>(
     // We know it's the second case if the logs are currently disabled. So in
     // dev, we can present a more accurate error message.
     if (__DEV__) {
-      // eslint-disable-next-line react-internal/no-production-logging
       if (console.log.__reactDisabledLog) {
         // If the logs are disabled, this is the dev-only double render. This is
         // only reachable if there was a mutation during render. Show a helpful
@@ -1172,7 +1171,7 @@ function useMutableSource<Source, Snapshot>(
     }
 
     return unsubscribe;
-  }, [source, subscribe]);
+  },);
 
   // If any of the inputs to useMutableSource change, reading is potentially unsafe.
   //

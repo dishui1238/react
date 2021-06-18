@@ -27,7 +27,6 @@ disabledLog.__reactDisabledLog = true;
 export function disableLogs(): void {
   if (__DEV__) {
     if (disabledDepth === 0) {
-      /* eslint-disable react-internal/no-production-logging */
       prevLog = console.log;
       prevInfo = console.info;
       prevWarn = console.warn;
@@ -52,7 +51,6 @@ export function disableLogs(): void {
         groupCollapsed: props,
         groupEnd: props,
       });
-      /* eslint-enable react-internal/no-production-logging */
     }
     disabledDepth++;
   }
@@ -62,7 +60,6 @@ export function reenableLogs(): void {
   if (__DEV__) {
     disabledDepth--;
     if (disabledDepth === 0) {
-      /* eslint-disable react-internal/no-production-logging */
       const props = {
         configurable: true,
         enumerable: true,
@@ -78,7 +75,6 @@ export function reenableLogs(): void {
         groupCollapsed: {...props, value: prevGroupCollapsed},
         groupEnd: {...props, value: prevGroupEnd},
       });
-      /* eslint-enable react-internal/no-production-logging */
     }
     if (disabledDepth < 0) {
       console.error(

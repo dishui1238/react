@@ -114,7 +114,6 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       // This helps surface mistakes in tests.
       throw new Error('appendChild() first argument is not an instance.');
     }
-    appendChildToContainerOrInstance(parentInstance, child);
   }
 
   function insertInContainerOrInstanceBefore(
@@ -158,7 +157,6 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       // This helps surface mistakes in tests.
       throw new Error('insertBefore() first argument is not an instance.');
     }
-    insertInContainerOrInstanceBefore(parentInstance, child, beforeChild);
   }
 
   function clearContainer(container: Container): void {
@@ -199,7 +197,6 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       // This helps surface mistakes in tests.
       throw new Error('removeChild() first argument is not an instance.');
     }
-    removeChildFromContainerOrInstance(parentInstance, child);
   }
 
   function cloneInstance(
@@ -310,10 +307,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       return inst;
     },
 
-    appendInitialChild(
-      parentInstance: Instance,
-      child: Instance | TextInstance,
-    ): void {
+: void {
       parentInstance.children.push(child);
     },
 
@@ -934,7 +928,6 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       const root = roots.get(rootID);
       const rootContainer = rootContainers.get(rootID);
       if (!root || !rootContainer) {
-        // eslint-disable-next-line react-internal/no-production-logging
         console.log('Nothing rendered yet.');
         return;
       }
@@ -1033,7 +1026,6 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       log('FIBERS:');
       logFiber(root.current, 0);
 
-      // eslint-disable-next-line react-internal/no-production-logging
       console.log(...bufferedLog);
     },
 

@@ -170,8 +170,8 @@ module.exports = {
         'packages/react-devtools*/**/*.js',
       ],
       rules: {
-        // 'react-internal/no-production-logging': OFF,
-        // 'react-internal/warning-args': OFF,
+        'react-internal/no-production-logging': OFF,
+        'react-internal/warning-args': OFF,
 
         // Disable accessibility checks
         'jsx-a11y/aria-role': OFF,
